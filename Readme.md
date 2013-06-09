@@ -45,7 +45,9 @@
       ?
 ```
   L[A] = [A, X, Y, O]
+
   L[B] = [B, Y, X, O]
+
   L[C] = [A, B, X, Y, O] - не монотонна!
 
 
@@ -131,24 +133,30 @@ Level 0                 0 | A |                (more specialized)
 
 Линеаризация O, D, E и F тривиальны:
 
+```
   L[O] = O
   L[D] = D O
   L[E] = E O
   L[F] = F O
+```
 
 Линеаризация B и C:
 
+```
   L[B] = B + merge(DO, EO, DE) = B D E O
   L[C] = C + merge(DO, FO, DF) = C D F O
+```
 
 Теперь мы можем рассчитать линеаризацию для A:
 
+```
   L[A] = A + merge(L[B], L[C], BC)
        = A + merge(BDEO, CDFO, BC)
        = A + B merge(DEO, CDFO, C)
        = A + B + C merge(DEO, DFO)
         ...
        = A + B + C  + D + E + F + O
+```
 
 
 Монотонность для `C` и `B` сохранилась
@@ -164,5 +172,5 @@ Level 0                 0 | A |                (more specialized)
 
 # Ссылки
 
-Python - http://www.python.org/download/releases/2.3/mro/
-Habrahabr (Python) - http://habrahabr.ru/post/62203/
+ * [Python Documentation](http://www.python.org/download/releases/2.3/mro/)
+ * [Habrahabr (Python)](http://habrahabr.ru/post/62203/)
